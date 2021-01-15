@@ -10,9 +10,9 @@ class Ride < ApplicationRecord
         elsif ticket_check
             sorry_tickets
         else 
-            user.tickets = user.tickets - attraction.tickets
-            user.nausea =  user.nausea + attraction.nausea_rating
-            user.happiness = user.happiness + attraction.happiness_rating
+            user.tickets -= attraction.tickets
+            user.nausea += attraction.nausea_rating
+            user.happiness += attraction.happiness_rating
             self.user.save
             "Thanks for riding the #{attraction.name}!"
         end
